@@ -18,6 +18,7 @@ def timer(input_function):
 
 def logger(input_function):
     logging.basicConfig(filename="decorator_logger.txt", level=logging.INFO)
+    @wraps(input_function)
     def wrapper(*args, **kwargs):
         logging.info(f"function, {input_function.__name__} ran with arguents {args}: {input_function.__name__}{args}")
         return input_function(*args, **kwargs)
